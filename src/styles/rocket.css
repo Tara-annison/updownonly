@@ -1,0 +1,33 @@
+.rocket {
+  position: fixed;
+  font-size: 24px;
+  animation: flyRocket 15s linear infinite;
+  z-index: 0;
+  transform: rotate(45deg);
+  opacity: 0.8;
+}
+
+@keyframes flyRocket {
+  0% {
+    left: -50px;
+    top: 100px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  35% {
+    left: 100%;
+    top: 40%;
+    opacity: 0.8;
+  }
+  36%, 100% {
+    left: 100%;
+    top: 40%;
+    opacity: 0;
+  }
+}
+
+.rocket-trail {
+  display: none; /* Removing the trail effect */
+} 

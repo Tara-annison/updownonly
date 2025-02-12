@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Nokia';
+  src: url('/fonts/nokiafc22.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --pixel-border-size: 4px;
+  --pixel-border-color: rgba(255, 255, 255, 0.8);
+}
+
+.pixel-text {
+  font-family: 'Nokia', monospace;
+  letter-spacing: 0.05em;
+}
+
+.pixel-border-lg {
+  position: relative;
+  border: var(--pixel-border-size) solid var(--pixel-border-color);
+  box-shadow: 0 0 0 var(--pixel-border-size) rgba(0, 0, 0, 0.3);
+}
+
+.pixel-border-action {
+  position: relative;
+  border: 2px solid var(--pixel-border-color);
+}
+
+@keyframes particle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle 2s ease-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Game background animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  :root {
+    --pixel-border-size: 3px;
+  }
+  
+  .pixel-text {
+    letter-spacing: 0.03em;
+  }
+}
