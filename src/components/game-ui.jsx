@@ -29,7 +29,7 @@ const GameUI = ({
   }, []); // Empty dependency array means this only runs once
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 text-white bg-[#0a1128] relative overflow-hidden">
+    <div className="h-screen flex flex-col items-center p-4 text-white bg-[#0a1128] relative overflow-hidden">
       {/* Stars Background - truly static */}
       <div className="absolute inset-0 overflow-hidden">
         {staticStars.map((star) => (
@@ -48,7 +48,7 @@ const GameUI = ({
       </div>
 
       {/* Header with Menu Button and Title/Score aligned */}
-      <div className="w-full max-w-4xl flex items-start relative z-10">
+      <div className="w-full max-w-4xl flex items-start relative z-10 h-[15vh]">
         <RetroButton onClick={onHome} size="small">
           <Menu size={20} />
         </RetroButton>
@@ -69,16 +69,16 @@ const GameUI = ({
       </div>
 
       {/* Game Content */}
-      <div className="flex-1 w-full max-w-4xl flex flex-col items-center justify-center relative z-10 mt-8">
+      <div className="flex-1 w-full max-w-4xl flex flex-col items-center justify-evenly relative z-10">
         {!isGameOver ? (
           <>
-            {/* Timer - simplified, no decorative elements */}
-            <div className="mb-4 md:mb-8 text-xl md:text-3xl pixel-text">
+            {/* Timer with adjusted spacing */}
+            <div className="text-xl md:text-3xl pixel-text">
               Time: {timeRemaining}s
             </div>
 
-            {/* Crypto Cards */}
-            <div className="space-y-6 md:space-y-12 w-full">
+            {/* Crypto Cards with dynamic spacing */}
+            <div className="w-full space-y-4 md:space-y-8">
               {currentCrypto && <CryptoCard crypto={currentCrypto} showPrice={true} />}
               {nextCrypto && (
                 <>
@@ -87,7 +87,7 @@ const GameUI = ({
                     showPrice={false} 
                     isQuestion={true}
                   />
-                  <div className="flex justify-center space-x-4 md:space-x-8">
+                  <div className="flex justify-center space-x-4 mt-4">
                     <RetroButton onClick={onHigher} variant="higher" size="large" className="px-4 md:px-8">
                       Higher
                     </RetroButton>
@@ -165,8 +165,10 @@ const GameUI = ({
         )}
       </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer with fixed bottom spacing */}
+      <div className="h-[10vh] flex items-end">
+        <Footer />
+      </div>
 
       <style jsx>{`
         .pixel-text {

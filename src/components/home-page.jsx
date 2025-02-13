@@ -98,7 +98,7 @@ const HomePage = ({ onStartGame }) => {
 
   return (
     <>
-      <div className="min-h-screen w-full relative text-white p-4 bg-[#0a1128]">
+      <div className="h-screen flex flex-col items-center p-4 text-white bg-[#0a1128] relative overflow-hidden">
         {/* Stars Background */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Regular stars */}
@@ -137,10 +137,10 @@ const HomePage = ({ onStartGame }) => {
           <Menu size={20} />
         </RetroButton>
 
-        {/* Main Content - split into two sections */}
-        <div className="relative z-10 px-4">
-          {/* Title - slightly lower than menu */}
-          <div className="pt-8 text-center">
+        {/* Main content with adjusted spacing */}
+        <div className="flex-1 flex flex-col justify-evenly relative z-10 w-full max-w-4xl">
+          {/* Title section */}
+          <div className="text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold pixel-text relative">
               <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent pixel-text [text-shadow:0_0_20px_rgba(255,255,255,0.8),0_0_40px_rgba(255,255,255,0.6),0_0_60px_rgba(255,255,255,0.4)]">
                 UpDownOnly
@@ -148,8 +148,8 @@ const HomePage = ({ onStartGame }) => {
             </h1>
           </div>
 
-          {/* Description and Buttons - with tighter spacing */}
-          <div className="max-w-2xl mx-auto mt-48 md:mt-64 space-y-8 md:space-y-12 text-center">
+          {/* Description and buttons with dynamic spacing */}
+          <div className="space-y-8">
             {/* Description Card */}
             <div className="bg-gray-800/80 p-4 md:p-6 rounded-lg border-2 border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm max-w-lg mx-auto">
               <p className="text-sm md:text-base pixel-text leading-relaxed text-white/90">
@@ -182,10 +182,10 @@ const HomePage = ({ onStartGame }) => {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="absolute bottom-4 w-full text-center text-white/60 text-[10px] pixel-text">
-          <Planet className="translate-y-[2px]" /> Built by Tara Annison
-        </footer>
+        {/* Footer with fixed bottom spacing */}
+        <div className="h-[10vh] flex items-end">
+          <Footer />
+        </div>
       </div>
 
       {/* How to Play Modal */}

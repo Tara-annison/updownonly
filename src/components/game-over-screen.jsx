@@ -10,7 +10,7 @@ const GameOverScreen = ({
   onHome
 }) => {
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 text-white bg-[#0a1128] relative overflow-hidden">
+    <div className="h-screen flex flex-col items-center p-4 text-white bg-[#0a1128] relative overflow-hidden">
       {/* Stars Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(50)].map((_, i) => {
@@ -33,7 +33,7 @@ const GameOverScreen = ({
       </div>
 
       {/* Title and Score - aligned with where menu button would be */}
-      <div className="w-full max-w-4xl flex items-start relative z-10">
+      <div className="w-full max-w-4xl flex items-start relative z-10 h-[15vh]">
         {/* Spacer for menu button alignment */}
         <div className="w-[40px]" />
         
@@ -52,7 +52,7 @@ const GameOverScreen = ({
       </div>
 
       {/* Game Over Content */}
-      <div className="flex-1 flex flex-col items-center justify-center text-center space-y-8 relative z-10 mt-8">
+      <div className="flex-1 flex flex-col items-center justify-evenly relative z-10">
         <div>
           <h2 className="text-4xl md:text-6xl font-bold mb-4 pixel-text relative">
             {/* First glow layer */}
@@ -78,7 +78,7 @@ const GameOverScreen = ({
         </div>
         
         {/* Main Buttons with aggressive overrides */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Primary Action - Play Again */}
           <div className="w-48 md:w-64 mx-auto">
             <RetroButton
@@ -123,21 +123,16 @@ const GameOverScreen = ({
             </div>
           </div>
         </div>
+
+        {/* Social share moved closer */}
+        <div className="space-y-4">
+          {/* Social content */}
+        </div>
+      </div>
+
+      {/* Footer with fixed bottom spacing */}
+      <div className="h-[10vh] flex items-end">
+        <Footer />
       </div>
 
       <style jsx="true">{`
-        .pixel-text {
-          font-family: 'Press Start 2P', cursive;
-          text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-        }
-        @keyframes twinkle {
-          0% { opacity: 0.3; }
-          50% { opacity: 1; }
-          100% { opacity: 0.3; }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export default GameOverScreen;
